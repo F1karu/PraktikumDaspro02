@@ -40,7 +40,29 @@ public class StudiKasus202 {
                 } else {
                     alasan = "Hanya meraih juara harapan atau peserta";
 
+                } 
+            } else if (jenisKegiatan.equalsIgnoreCase("PKM")) {
+
+                System.out.println("Status pendanaan PKM (1 = Lolos, 0 = Tidak lolos): ");
+                statusPendanaan = input.nextInt();
+
+                if (statusPendanaan == 1){
+                    
+                    System.out.println("Jumlah dokumen yang diupload (0-4): ");
+                    jumlahDokumen = input.nextInt();
+                    
+                    if (jumlahDokumen == 4) {
+                        statusDana = "Menerima Dana";
+                        alasan = "Lolos pendanaan PKM dan dokumen lengkap";
+                    } else {
+                        int kurang = 4 - jumlahDokumen;
+                        alasan = "Lolos pendanaan PKM, namun dokumen (Kurang " + kurang + " dokumen )";
+                    }
+                } else {
+                    alasan = "Tidak lolos pendanaan PKM";
                 }
+            } else {
+                alasan = "Kegiatan di luar pemberian dana";
             }
 
         System.out.println("Nama Mahasiswa     : " + namaMahasiswa);
